@@ -26,6 +26,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # Display a dataframe as an interactive table
 streamlit.dataframe(fruityvice_normalized)
+#dont run anything here while we troubleshoot
+streamlit.stop()
 
 import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
